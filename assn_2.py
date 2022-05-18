@@ -2,9 +2,6 @@
 #
 # Implement A star Algorithm for any game search problem.
 
-# from pickle import NONE
-
-
 class Node:
     def __init__(self, position=None, parent=None):
         self.position = position
@@ -56,9 +53,10 @@ def astar(maze, start, end):
             if (node_position[0] >= len(maze)) or (node_position[1] >= len(
                     maze[0])) or (node_position[0] < 0) or (node_position[1] <
                                                             0):
+                print(node_position)
                 continue
 
-            if maze[new_postition[0]][new_postition[1]] != 0:
+            if maze[node_position[0]][node_position[1]] != 0:
                 continue
 
             children.append(Node(position=node_position, parent=current_node))
@@ -74,7 +72,7 @@ def astar(maze, start, end):
             child.f = child.g + child.h
 
             for node in open_list:
-                if child == node or child.g > node.g:
+                if child == node or child.f > node.f:
                     continue
 
             open_list.append(child)
@@ -84,8 +82,8 @@ def main():
 
     maze = [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+           # [0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
     start = (0, 0)

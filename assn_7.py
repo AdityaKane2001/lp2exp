@@ -8,3 +8,5 @@ sudo systemctl status libvirtd
 sudo systemctl enable --now libvirtd
 sudo apt install virt-manager
 sudo virt-manager
+
+https://phoenixnap.com/kb/ubuntu-install-kvm
